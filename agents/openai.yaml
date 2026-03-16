@@ -1,0 +1,7 @@
+interface:
+  display_name: "AI Video Scene Builder"
+  short_description: "Turn a scene idea into sound, storyboard, checklist, and prompts."
+  default_prompt: "Use $ai-video-scene-builder to turn this video idea or scene into a production-ready scene package."
+
+policy:
+  allow_implicit_invocation: true
