@@ -1,4 +1,4 @@
-# AI Video Scene Builder
+# AIVideoPro
 
 把中文 AI 视频想法、场景或戏剧片段，拆成可以直接执行的场景包与分镜输出。
 
@@ -92,7 +92,7 @@
 ## 目录结构
 
 ```text
-ai-video-scene-builder/
+AIVideoPro/
 ├─ SKILL.md
 ├─ README.md
 ├─ agents/
@@ -120,7 +120,7 @@ ai-video-scene-builder/
 把整个目录放到本机的 Codex skills 目录下：
 
 ```powershell
-C:\Users\<YourUser>\.codex\skills\ai-video-scene-builder
+C:\Users\<YourUser>\.codex\skills\AIVideoPro
 ```
 
 或放到你当前环境约定的 skills 目录中。
@@ -130,21 +130,21 @@ C:\Users\<YourUser>\.codex\skills\ai-video-scene-builder
 直接在提示里调用：
 
 ```text
-$ai-video-scene-builder
+$AIVideoPro
 ```
 
 例如：
 
 ```text
-用 $ai-video-scene-builder 把这段 15 秒梦境森林视频想法拆成可执行分镜，按新版四块结构输出。
+用 $AIVideoPro 把这段 15 秒梦境森林视频想法拆成可执行分镜，按新版四块结构输出。
 ```
 
 ```text
-用 $ai-video-scene-builder 把这场国风打斗戏拆成短剧分镜，并补全完整分镜脚本表。
+用 $AIVideoPro 把这场国风打斗戏拆成短剧分镜，并补全完整分镜脚本表。
 ```
 
 ```text
-用 $ai-video-scene-builder 把这个参考片段拆成即梦视频提示词，直接从【基础设定】开始。
+用 $AIVideoPro 把这个参考片段拆成即梦视频提示词，直接从【基础设定】开始。
 ```
 
 ## 设计原则
