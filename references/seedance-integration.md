@@ -4,7 +4,7 @@
 
 ## 定位
 
-`AIVideoPro` 仍然是上游主 skill。
+`AIvideo-prompt` 仍然是上游主 skill。
 
 它负责先产出：
 
@@ -30,7 +30,7 @@ Seedance 输出属于下游适配层，负责：
 
 固定边界：
 
-- `AIVideoPro` 负责“镜头怎么成立”
+- `AIvideo-prompt` 负责“镜头怎么成立”
 - `.claude/skills/seedance` 负责“Seedance 中文怎么写得更像成品 prompt”
 
 ## 默认联用流程
@@ -42,7 +42,7 @@ Seedance 输出属于下游适配层，负责：
 
 更完整地说：
 
-1. 用 `AIVideoPro` 产出四块结构
+1. 用 `AIvideo-prompt` 产出四块结构
 2. 从分镜表里抽取：
    - 画面内容
    - 动作

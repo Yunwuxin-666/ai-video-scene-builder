@@ -1,7 +1,7 @@
 interface:
-  display_name: "AIVideoPro"
+  display_name: "AIvideo-prompt"
   short_description: "Turn an AI video idea into a production-ready storyboard package."
-  default_prompt: "Use $AIVideoPro to turn this video idea or scene into a production-ready storyboard package."
+  default_prompt: "Use $AIvideo-prompt to turn this video idea or scene into a production-ready storyboard package."
 
 policy:
   allow_implicit_invocation: true
