@@ -1,3 +1,5 @@
+
+
 # AIvideo-prompt
 
 把中文 AI 视频想法、场景或戏剧片段，拆成可以直接执行的场景包与分镜输出。
@@ -123,7 +125,7 @@ AIvideo-prompt/
 C:\Users\<YourUser>\.codex\skills\AIvideo-prompt
 ```
 
-或放到你当前环境约定的 skills 目录中。
+或放到你当前环境约定的 skills 目录中。（框架会自动读取 `SKILL.md` 和 `agents/openai.yaml` 完成注册，无需额外配置。）
 
 ## 调用方式
 
