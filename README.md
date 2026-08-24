@@ -1,7 +1,7 @@
 # Film Skill Suite
 
 This repository is a local version-controlled snapshot of the film, AI-video,
-character-concept, camera, lighting, style, emotion, timing, sound, editing,
+character-concept, environment-concept, camera, lighting, style, emotion, timing, sound, editing,
 action, and VFX skills installed under:
 
 `C:\Users\Administrator\.codex\skills`
@@ -29,8 +29,8 @@ Run the suite contract validator from PowerShell:
 - Production coordination and platform compilation
 - Storyboard and narrative structure
 - Character, costume, and concept design
+- Functional environment concept design for film, animation, and games
 - Camera, lighting, style, emotion, timing, music, and editing
 - VFX and fight choreography
 - Animation performance and direction boundaries
 - Cross-media routing boundary dependency
-

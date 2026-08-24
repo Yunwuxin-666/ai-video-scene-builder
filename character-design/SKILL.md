@@ -5,6 +5,20 @@ description: 影视、动画、游戏、仙侠、武侠、现实题材、反派�
 
 # 角色设计
 
+## Routed Mode
+
+When ConceptSpec or a producer handoff is present:
+
+- Change only `character_design`: identity/function interpretation, proportion, anatomy/face, hair/grooming, expression, pose intent, costume large pieces, connection logic, ornament zones, identity props, and approved material assignment.
+- Key every patch by stable entity or concept ID and state the base ConceptSpec version.
+- Preserve locked world position, primary style, palette, camera, lighting, environment, VFX, and output scope.
+- Use the approved material grammar but do not invent a new palette or style route.
+- Treat `quality_target` references as completion and hierarchy evidence only. Do not import their face, palette, costume, motif, prop, pose, or setting.
+- Report conflicts instead of blending references or rewriting upstream fields.
+- Return a compact patch, not a new full prompt package.
+
+Use the complete output modes below only in explicit standalone mode.
+
 ## Mission
 
 把用户的角色想法转成可执行的角色设计方案和提示词。先建立世界观、角色功能、身体比例和视觉母题，再设计服装、妆造、道具、材质和特效。目标不是做一套“好看的衣服”，而是做一个能进入影视/动画/游戏世界、远中近景都能被识别的角色。
@@ -25,6 +39,8 @@ description: 影视、动画、游戏、仙侠、武侠、现实题材、反派�
 - 中景能读出职业、阵营、阶层和行动方式。
 - 近景能读出材质、工艺、旧化、妆造和私人物件。
 - 服装必须挂在身体和世界观上，不能只是装饰。
+
+For high-quality game/animation concepts, separate `structural complexity` from `surface noise`. Build design value through silhouette, large-piece geometry, asymmetry, status-specific equipment, and connection logic. Keep broad clean material zones; do not use all-over embroidery, beads, tassels, trims, or tiny panels as a substitute for design.
 
 ## Reference Loading
 

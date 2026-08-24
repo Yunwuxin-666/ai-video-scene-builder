@@ -7,7 +7,7 @@ description: Cinematic lighting-department skill for motivated sources, directio
 
 ## Routed Mode
 
-When FilmSpec or a producer handoff is present:
+When FilmSpec, ConceptSpec, or a producer handoff is present:
 
 - Change only `lighting_patch`.
 - Implement the locked target tone without selecting a new style.
@@ -15,6 +15,8 @@ When FilmSpec or a producer handoff is present:
 - Preserve action, blocking, camera, palette, art direction, VFX, and sound.
 - Report incompatible light or location states instead of blending them.
 - Do not emit a new full generation prompt.
+
+For ConceptSpec, change only `presentation.lighting`: source, direction, quality, contrast, exposure intent, color temperature, separation, and material-reveal purpose. Preserve subject design, palette, composition, camera, environment, and VFX mechanism.
 
 Use full prompt-repair output only in explicit standalone mode.
 

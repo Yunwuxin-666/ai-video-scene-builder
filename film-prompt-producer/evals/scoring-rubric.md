@@ -1,6 +1,6 @@
 # Film workflow scoring rubric
 
-Use `../references/quality-scorecard.md` as the scoring authority. Do not duplicate or weaken its live-delivery thresholds in eval results.
+Use `../references/quality-scorecard.md` for time-based film packages and `../references/concept-quality-scorecard.md` for static concept packages. Do not duplicate or weaken their live-delivery thresholds in eval results.
 
 ## Stability run
 

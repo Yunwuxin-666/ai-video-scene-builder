@@ -1,0 +1,50 @@
+[
+  {
+    "id": "quality-reference-no-content-leak",
+    "input": "这些图只是游戏角色完成度和材质方向参考，原创一个宗门小师妹，不要照搬服装和配色。",
+    "deliverable": "character",
+    "reference_roles": ["quality_target"],
+    "must_lock": ["original identity", "palette source", "dominant silhouette", "surface noise budget", "reference must_ignore"],
+    "must_not": ["copy reference palette", "copy costume pieces", "copy motifs", "blend faces"]
+  },
+  {
+    "id": "character-structural-complexity-low-noise",
+    "input": "做一个高完成度宗门大师姐，服装不能普通，也不要满身噪点。",
+    "deliverable": "character",
+    "reference_roles": [],
+    "must_lock": ["world position", "status-specific equipment", "large costume pieces", "connection logic", "clean mass zones", "focal detail zones"],
+    "must_not": ["plain robe template", "all-over embroidery", "random tassels", "keyword pile materials"]
+  },
+  {
+    "id": "golden-cold-monk-design-logic",
+    "input": "雪夜古寺山门的守门师兄与戒律执行者，冷峻武僧，输出高质量角色设定提示词。",
+    "deliverable": "character",
+    "reference_roles": [],
+    "must_lock": ["gatekeeper function", "dominant silhouette", "three motifs maximum", "component material mapping", "wear history", "emotional contradiction"],
+    "must_not": ["generic monk robe", "ornament inflation", "unassigned material adjectives", "random fantasy glow"]
+  },
+  {
+    "id": "functional-sect-environment",
+    "input": "设计一张宗门山门与弟子集结区的游戏场景概念图，要求能看懂通行、集结、守卫和高差。",
+    "deliverable": "environment",
+    "reference_roles": [],
+    "must_lock": ["functional zones", "traversal", "hero structure", "scale anchors", "vertical levels", "material history"],
+    "must_not": ["decorative architecture collage", "blocked path", "unclear scale", "equal-detail clutter"]
+  },
+  {
+    "id": "contained-sword-vfx-keyframe",
+    "input": "做一张剑修蓄力未出剑的特效概念图，特效克制但高级。",
+    "deliverable": "vfx",
+    "reference_roles": [],
+    "must_lock": ["effect source", "build-up phase", "force direction", "contact evidence", "optical response", "containment"],
+    "must_not": ["free-floating magic circle", "full-frame glow", "effect hiding character", "unsupported particles"]
+  },
+  {
+    "id": "mature-character-reference-boundary",
+    "input": "参考这两张图的成熟骨相、纵向长轮廓和高阶宗门气质，换成原创宗门大师姐。",
+    "deliverable": "character",
+    "reference_roles": ["identity", "silhouette", "quality_target"],
+    "must_lock": ["mature facial structure", "vertical silhouette", "senior-disciple function", "new palette source", "original costume structure"],
+    "must_not": ["copy blue-white palette", "copy veil", "copy shoulder marks", "copy exact dress"]
+  }
+]

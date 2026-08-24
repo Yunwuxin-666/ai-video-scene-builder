@@ -96,5 +96,33 @@
     "primary": "镜头.skill",
     "allowed_secondary": [],
     "forbidden_primary": ["film-prompt-producer"]
+  },
+  {
+    "id": "character-concept-only",
+    "input": "设计一个宗门大师姐，重点做比例、发型、表情、服装结构和材质。",
+    "primary": "character-design",
+    "allowed_secondary": ["风格.skill"],
+    "forbidden_primary": ["storyboard-video-prompts", "aivideo-prompt"]
+  },
+  {
+    "id": "environment-concept-only",
+    "input": "设计一张可用于游戏地编的古寺山门场景概念图，重点是空间层级、通行和材质。",
+    "primary": "environment-concept-design",
+    "allowed_secondary": ["风格.skill"],
+    "forbidden_primary": ["storyboard-video-prompts", "aivideo-prompt"]
+  },
+  {
+    "id": "multi-department-static-concept",
+    "input": "综合角色、服装、镜头、灯光和特效，做一张高质量游戏角色概念图提示词。",
+    "primary": "film-prompt-producer",
+    "allowed_secondary": ["character-design", "镜头.skill", "灯光.skill", "风格.skill", "vfx-prompt-designer"],
+    "forbidden_primary": ["aivideo-prompt", "storyboard-video-prompts"]
+  },
+  {
+    "id": "static-vfx-concept-only",
+    "input": "只做一张剑气蓄力阶段的特效概念设计，说明来源、形态、受力和接触。",
+    "primary": "vfx-prompt-designer",
+    "allowed_secondary": [],
+    "forbidden_primary": ["film-prompt-producer", "aivideo-prompt"]
   }
 ]

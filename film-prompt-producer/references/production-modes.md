@@ -1,6 +1,6 @@
 # Production modes
 
-Select one mode before story development. Record it in FilmSpec. A mode controls inference freedom and production risk; it does not lower the craft standard.
+Select one mode before story or concept development. Record it in FilmSpec or ConceptSpec. A mode controls inference freedom and production risk; it does not lower the craft standard.
 
 ## Stable Mode
 
@@ -22,6 +22,7 @@ Rules:
 - keep camera movement motivated and physically simple;
 - use conservative reference ownership;
 - require every P0 quality dimension to pass before delivery.
+- for static concepts, lock role, silhouette, motif count, structural complexity, surface-noise budget, palette source, reference roles, and presentation before detail writing.
 
 Output:
 
@@ -39,6 +40,7 @@ Use only when:
 - the user explicitly asks for a bold, experimental, director-level, or one-take route;
 - the brief supplies enough identity, story, and visual evidence;
 - advanced reference assets, white models, motion references, extensions, or targeted edits are available;
+- for static concepts, the user wants controlled stylization, unusual silhouette, advanced costume/environment structure, or a higher-risk keyframe composition;
 - the user accepts higher iteration risk for a higher creative ceiling.
 
 Rules:
@@ -49,6 +51,7 @@ Rules:
 - use more complex camera or VFX only when source, path, contact, and consequence remain readable;
 - keep alternative routes separate until the producer selects one;
 - identify risky shots and provide a segmented fallback.
+- for static concepts, identify the riskiest design dependency and keep a structurally simpler fallback without changing the core concept.
 
 Output:
 
@@ -65,7 +68,7 @@ Do not ask the user to choose a mode unless the tradeoff materially changes the 
 
 ## Mode switch
 
-- A switch requires a new FilmSpec version.
+- A switch requires a new FilmSpec or ConceptSpec version.
 - Preserve all user facts and approved assets.
 - Re-run narrative and continuity gates.
 - Do not merge old mode prompts into the new active package.

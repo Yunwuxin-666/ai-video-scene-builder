@@ -7,7 +7,7 @@ description: 特效/VFX部门 skill，负责特效来源、材质、受力、路
 
 ## Routed Mode
 
-When FilmSpec or a producer handoff is present:
+When FilmSpec, ConceptSpec, or a producer handoff is present:
 
 - Change only `vfx_patch`.
 - Key every patch by shot ID.
@@ -15,6 +15,8 @@ When FilmSpec or a producer handoff is present:
 - Use the locked camera, lighting, style, action, and duration as inputs.
 - Report a physics or contact contradiction instead of rewriting upstream fields.
 - Do not emit a new full generation prompt.
+
+For a static ConceptSpec, change only `vfx_design`: source, mechanism, material, shape language, force/direction, depicted phase, contact/reaction, optical response, hierarchy, and containment. Key by effect or concept ID. A still image shows one primary phase; use a phase sheet only when requested. Preserve locked character, environment, camera, lighting, palette, and style.
 
 Use complete VFX prompt packages only in explicit standalone mode.
 

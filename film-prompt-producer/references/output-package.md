@@ -1,6 +1,6 @@
 # Final Output Package Contract
 
-Use this reference after FilmSpec and department patches are locked. Default to the compact package. Use the full package only when the user requests a complete production dossier or every department is operationally necessary.
+Use this reference after FilmSpec and department patches are locked. For static concepts, use `concept-output-package.md` instead. Default to the compact package. Use the full package only when the user requests a complete production dossier or every department is operationally necessary.
 
 ## Required Shape
 

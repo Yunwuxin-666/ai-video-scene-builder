@@ -7,7 +7,7 @@ description: Visual-style department skill for primary aesthetic route, target t
 
 ## Routed Mode
 
-When FilmSpec or a producer handoff is present:
+When FilmSpec, ConceptSpec, or a producer handoff is present:
 
 - Change only `visual_constitution`: primary style, optional secondary influence, forbidden styles, palette, target tone, material anchors, and texture boundary.
 - Keep one primary style and at most one secondary influence.
@@ -15,6 +15,8 @@ When FilmSpec or a producer handoff is present:
 - Do not write camera packets or technical lighting rigs.
 - Do not import incidental details from references.
 - Do not emit a new full generation prompt.
+- For ConceptSpec, also lock `palette_source`, structural-vs-surface texture boundary, clean-mass zones, and forbidden color/default leakage. Do not continue colors from prior examples unless they are current user locks or explicitly palette-bound references.
+- A `quality_target` reference controls completion, hierarchy, material separation, and render finish only; it contributes no content fields.
 
 Use the complete prompt formats below only in explicit standalone mode.
 

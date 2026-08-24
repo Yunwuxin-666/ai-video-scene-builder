@@ -56,7 +56,11 @@ $requiredReferences = @(
     "production-modes.md",
     "patch-examples.md",
     "quality-scorecard.md",
-    "routing-boundaries.md"
+    "routing-boundaries.md",
+    "conceptspec-v1.md",
+    "reference-role-contract.md",
+    "concept-quality-scorecard.md",
+    "concept-output-package.md"
 )
 
 foreach ($name in $requiredReferences) {
@@ -67,8 +71,12 @@ foreach ($name in $requiredReferences) {
 }
 
 Require-Text (Join-Path $producer "SKILL.md") "only owner of the active FilmSpec" "FilmSpec ownership"
+Require-Text (Join-Path $producer "SKILL.md") "active ConceptSpec" "ConceptSpec ownership"
 Require-Text (Join-Path $producer "SKILL.md") "Default to Stable Mode" "production mode selection"
 Require-Text (Join-Path $producer "SKILL.md") "overall average is below 4.2" "delivery score gate"
+Require-Text (Join-Path $producer "references\conceptspec-v1.md") "Structural complexity and surface noise are independent" "concept complexity separation"
+Require-Text (Join-Path $producer "references\reference-role-contract.md") "quality_target" "quality reference role"
+Require-Text (Join-Path $producer "references\concept-quality-scorecard.md") "reference boundaries" "concept reference gate"
 Require-Text (Join-Path $producer "SKILL.md") "routing-boundaries.md" "routing boundary loading"
 Require-Text (Join-Path $SkillRoot "orchestrate-creative-production\SKILL.md") "For a film-only multi-department workflow" "orchestrator film boundary"
 Require-Text (Join-Path $SkillRoot "filmmaker\SKILL.md") "Do not use as a generic film-planning" "filmmaker trigger boundary"
@@ -92,11 +100,53 @@ $departmentFiles = @(
     $durationSkill,
     $musicSkill,
     $styleSkill,
-    "vfx-prompt-designer\SKILL.md"
+    "vfx-prompt-designer\SKILL.md",
+    "character-design\SKILL.md",
+    "environment-concept-design\SKILL.md"
 )
 
 foreach ($relative in $departmentFiles) {
     Require-Text (Join-Path $SkillRoot $relative) "## Routed Mode" "department routed mode"
+}
+
+$conceptEvalPath = Join-Path $producer "evals\concept-cases.json"
+if (-not (Test-Path -LiteralPath $conceptEvalPath)) {
+    $failures.Add("Missing concept eval cases")
+}
+else {
+    try {
+        $conceptCases = Get-Content -LiteralPath $conceptEvalPath -Raw -Encoding UTF8 | ConvertFrom-Json
+        if ($conceptCases.Count -lt 5) {
+            $failures.Add("Expected at least 5 concept eval cases")
+        }
+        $conceptIds = @{}
+        foreach ($case in $conceptCases) {
+            foreach ($field in @("id", "input", "deliverable", "reference_roles", "must_lock", "must_not")) {
+                if ($null -eq $case.$field) {
+                    $failures.Add("Concept eval case missing $field")
+                }
+            }
+            if ($conceptIds.ContainsKey($case.id)) {
+                $failures.Add("Duplicate concept eval case id: $($case.id)")
+            }
+            else {
+                $conceptIds[$case.id] = $true
+            }
+        }
+        foreach ($requiredId in @(
+            "quality-reference-no-content-leak",
+            "character-structural-complexity-low-noise",
+            "functional-sect-environment",
+            "contained-sword-vfx-keyframe"
+        )) {
+            if (-not $conceptIds.ContainsKey($requiredId)) {
+                $failures.Add("Missing required concept regression case: $requiredId")
+            }
+        }
+    }
+    catch {
+        $failures.Add("Invalid concept eval JSON: $($_.Exception.Message)")
+    }
 }
 
 $agentFiles = @(
@@ -158,6 +208,7 @@ else {
             $failures.Add("Expected at least 12 routing eval cases")
         }
         $routingIds = @{}
+        $routingPrimary = @{}
         foreach ($case in $routingCases) {
             foreach ($field in @("id", "input", "primary", "allowed_secondary", "forbidden_primary")) {
                 if ($null -eq $case.$field) {
@@ -169,9 +220,24 @@ else {
             }
             else {
                 $routingIds[$case.id] = $true
+                $routingPrimary[$case.id] = $case.primary
             }
             if ($case.forbidden_primary -contains $case.primary) {
                 $failures.Add("Routing case forbids its own primary: $($case.id)")
+            }
+        }
+        $requiredConceptRoutes = @{
+            "character-concept-only" = "character-design"
+            "environment-concept-only" = "environment-concept-design"
+            "multi-department-static-concept" = "film-prompt-producer"
+            "static-vfx-concept-only" = "vfx-prompt-designer"
+        }
+        foreach ($routeId in $requiredConceptRoutes.Keys) {
+            if (-not $routingPrimary.ContainsKey($routeId)) {
+                $failures.Add("Missing required concept route: $routeId")
+            }
+            elseif ($routingPrimary[$routeId] -ne $requiredConceptRoutes[$routeId]) {
+                $failures.Add("Unexpected primary for ${routeId}: $($routingPrimary[$routeId])")
             }
         }
     }

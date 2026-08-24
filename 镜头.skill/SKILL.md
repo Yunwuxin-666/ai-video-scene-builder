@@ -13,7 +13,7 @@ Do not rewrite the user's choreography, plot, environment, lighting, texture, co
 
 ## Routed Mode
 
-When FilmSpec or a producer handoff is present:
+When FilmSpec, ConceptSpec, or a producer handoff is present:
 
 - Read the stated FilmSpec version and locked fields.
 - Change only `camera_patch`: shot size, position, lens, support, movement, focus, and cut/continuity.
@@ -21,6 +21,8 @@ When FilmSpec or a producer handoff is present:
 - Report an upstream action or spatial contradiction instead of fixing it.
 - Do not reproduce or rewrite the full generation prompt.
 - Do not add light, style, VFX, sound, props, actions, or story beats.
+
+For ConceptSpec, change only the presentation camera fields: view purpose, framing/shot size, camera angle, lens or perspective behavior, composition, and what design evidence must remain visible. Do not add movement, cut points, or shot continuity to a static concept unless the deliverable is explicitly a narrative keyframe sequence.
 
 Use the existing full-prompt output modes only for explicit standalone requests.
 

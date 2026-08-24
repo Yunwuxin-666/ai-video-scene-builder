@@ -1,4 +1,4 @@
 interface:
   display_name: "影视提示词制片主任"
-  short_description: "锁定故事与连续性，调度影视部门并编译可执行提示词"
-  default_prompt: "Use $film-prompt-producer to turn my idea into a coherent, continuity-checked film prompt package."
+  short_description: "调度影视与游戏概念部门，锁定状态并编译高质量提示词"
+  default_prompt: "Use $film-prompt-producer to turn my idea into a coherent film package or a quality-gated character, environment, VFX, or keyframe concept prompt."

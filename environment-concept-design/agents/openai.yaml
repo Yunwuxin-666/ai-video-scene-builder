@@ -1,0 +1,7 @@
+interface:
+  display_name: "场景概念设计"
+  short_description: "影视、动画与游戏场景的空间结构、地编逻辑和材质历史"
+  default_prompt: "Use $environment-concept-design to turn my location idea into a functional, high-quality environment concept prompt."
+
+policy:
+  allow_implicit_invocation: true

@@ -1,6 +1,6 @@
 ---
 name: film-prompt-producer
-description: Primary production entry for complex Chinese film, commercial, AI-video, storyboard-to-generation, and multi-department prompt workflows. Use when the request needs two or more of story structure, continuity, cinematography, lighting, art direction, VFX, timing, sound, reference management, or platform-specific prompt compilation; or when the user asks for 影视提示词制片主任, film-prompt-producer, 完整影视提示词生成包, AI视频广告流程, or 影视制作流程调度.
+description: Primary production entry for complex Chinese film, game/animation concept art, commercial, AI-video, storyboard-to-generation, and multi-department prompt workflows. Use when the request needs two or more of character, costume, environment, VFX, cinematography, lighting, style, continuity, reference management, or platform compilation; or when the user asks for 影视提示词制片主任, film-prompt-producer, 高质量概念图提示词, 完整影视提示词生成包, or 影视制作流程调度.
 ---
 
 # Film Prompt Producer
@@ -9,9 +9,9 @@ description: Primary production entry for complex Chinese film, commercial, AI-v
 
 Act as a film prompt production coordinator, not as a single prompt writer.
 
-Build a controlled production chain from user intent to final usable prompt package. Own the active project state and version. Route specialists only after story facts and continuity state are stable. Accept field patches from departments; do not let departments rewrite the whole project.
+Build a controlled production chain from user intent to final usable prompt package. Own the active project state and version. Route specialists only after the applicable story/continuity locks or concept/design locks are stable. Accept field patches from departments; do not let departments rewrite the whole project.
 
-The default final deliverable is a **完整可用的影视提示词生成包**.
+The default final deliverable is a **完整可用的影视提示词生成包** for time-based work or a **高质量概念图提示词包** for static character, environment, VFX, or keyframe work.
 
 If the user explicitly asks for a sub-agent, delegated agent, or "影视提示词制片主任 agent", treat this skill as the agent's knowledge core. Spawn or instruct a sub-agent with `references/subagent-runtime-prompt.md` as its operating prompt, then pass the user's project brief and required source material to that sub-agent.
 
@@ -29,9 +29,17 @@ If the user explicitly asks for a sub-agent, delegated agent, or "影视提示�
 
 ## Production State
 
+Classify the task before creating state:
+
+- Use FilmSpec for time-based film, video, storyboard, sequence, continuity, or edit work.
+- Use ConceptSpec for static character, costume, environment, prop, VFX key art, game card, or concept keyframe work.
+- A bounded one-off department request may stay standalone. Create ConceptSpec when two or more departments participate, when references can conflict, or when the user is iterating the same character/world.
+
 For any routed or multi-stage task, read:
 
 - `references/filmspec-v1.md` to create and version the internal source of truth;
+- `references/conceptspec-v1.md` for static concept-art production;
+- `references/reference-role-contract.md` whenever references are supplied;
 - `references/production-modes.md` to select Stable or Director Mode;
 - `references/routing-boundaries.md` before choosing primary and secondary skills;
 - `references/department-ownership.md` before delegating or invoking specialist skills;
@@ -40,10 +48,11 @@ For any routed or multi-stage task, read:
 - `references/continuity-ledger.md` before and after department patches;
 - `references/prompt-density.md` before final compilation.
 - `references/quality-scorecard.md` before delivery.
+- `references/concept-quality-scorecard.md` before concept-art delivery.
 
-The producer is the only owner of the active FilmSpec. Departments return patches keyed by stable entity and shot IDs. Reject out-of-scope changes instead of silently merging them.
+The producer is the only owner of the active FilmSpec and the active ConceptSpec. Departments return patches keyed by stable entity, concept, or shot IDs. Reject out-of-scope changes instead of silently merging them.
 
-Default to Stable Mode for ambiguous or production-critical requests. Use Director Mode only when the user explicitly wants a higher-risk creative route or the brief and assets support it. Both modes must pass the same causality, continuity, reference, and platform gates.
+Default to Stable Mode for ambiguous or production-critical requests. Use Director Mode only when the user explicitly wants a higher-risk creative route or the brief and assets support it. Both modes must pass all applicable gates: film work uses causality/continuity/platform gates; concept work uses concept/design/reference/generatability gates.
 
 ## Input Classifier
 
@@ -57,6 +66,9 @@ Identify the user's input before writing:
 | Rough storyboard | Diagnose coverage, continuity, and prompt readiness |
 | Reference video | Analyze reusable mechanism before imitation |
 | Image or key visual | Extend visual world, camera, and motion logic |
+| Static character/costume brief | Create ConceptSpec; lock role, silhouette, motifs, complexity, palette source, and presentation |
+| Static environment brief | Create ConceptSpec; lock spatial function, hierarchy, traversal, scale, materials, atmosphere, and view purpose |
+| Static VFX/keyframe brief | Create ConceptSpec; lock effect source, mechanism, phase, contact, hierarchy, and presentation |
 | Existing prompt | Repair into production-ready shot prompts |
 
 ## Skill Routing
@@ -70,13 +82,28 @@ Use the current Codex skill system. When a stage applies, load the relevant skil
 | Platform prompt compilation | Story, continuity, and department patches are locked and the user needs copy-ready model prompts | `aivideo-prompt` | Compiled prompts, binding table, negative constraints |
 | Camera coverage | Need shot size, lens, axis, walk line, camera movement, cut points, or continuity | `镜头.skill` | Camera patches keyed by shot ID |
 | VFX / CG | Need particles, fluids, fire, smoke, electricity, hologram, screen replacement, CG product, impossible action, or compositing | `vfx-prompt-designer` | VFX patches keyed by shot ID |
+| Character / costume concept | Need character identity, proportion, silhouette, costume structure, grooming, props, or material assignment | `character-design` | Character-design patch keyed by entity/concept ID |
+| Environment concept | Need location function, spatial hierarchy, landmark silhouette, traversal, scale anchors, set dressing, or material aging | `environment-concept-design` | Environment-design patch keyed by concept ID |
 | Action choreography | Need fight, chase, collision, stunt rhythm, body mechanics, or combat continuity | `fight-choreo` | Action beats, body path, impact rhythm, safety/continuity notes |
-| Visual concept images | Need mood board, concept keyframes, stills, or generated visual references | `imagegen` or a relevant visual skill | Keyframe prompts or generated images |
+| Visual concept images | Need mood board, concept keyframes, stills, or generated visual references | `character-design`, `environment-concept-design`, `vfx-prompt-designer`, `风格.skill`, then `imagegen` only when an actual image is requested | Concept patches, copy-ready prompts, or generated images |
 | Poster / cover | Need Xiaohongshu cover, poster, campaign cover, or thumbnail | `CoverDesign-skill` or relevant poster skill | Cover/poster prompt package |
 | Timing | Need duration allocation, rhythm, or cut timing | `时长.skill` | Duration patches keyed by shot ID |
 | Sound/editing | Need sound bridge, music cue, Foley, silence, subtitles, or platform cuts | `音乐.skill` for sound; producer for post text/edit packaging | Sound patches and edit plan |
 
 ## Production Workflow
+
+### 0. Choose Film Or Concept Branch
+
+Use the film branch below for time-based work. For a static concept, do not force story beats, shot duration, editing, or sound into the task. Create ConceptSpec and run this concept branch:
+
+1. lock world position, subject function, target deliverable, and reference roles;
+2. lock one-sentence concept, one dominant silhouette, one primary directional line, and no more than three identity motifs;
+3. set structural complexity separately from surface-noise budget;
+4. route character/costume, environment, VFX, camera, lighting, and style only when their owned problem exists;
+5. compile one compact prompt plus one negative prompt by default;
+6. run `references/concept-quality-scorecard.md`; repair the smallest failing field.
+
+For repeated work in the same character or world, preserve the active ConceptSpec. Start an independent spec for a one-off request. Clear or replace it only when the user explicitly resets the project or changes the core direction.
 
 ### 1. Project Brief, Mode, And FilmSpec
 
@@ -186,6 +213,8 @@ Only after FilmSpec and all accepted patches are locked, route to `aivideo-promp
 
 Score the compiled package with `references/quality-scorecard.md`. Do not deliver if a P0 dimension is below 4 or the overall average is below 4.2; apply the smallest valid patch and re-run affected gates.
 
+For concept work, read `references/concept-output-package.md` and compile from ConceptSpec. Do not expose the full schema unless the user requests an audit. Deliver 1-3 sentences of design judgment, one copy-ready prompt, and one negative prompt by default; add turnarounds, costume breakdowns, material boards, environment callouts, or VFX phase sheets only when requested. Do not deliver if a concept P0 dimension is below 4 or the overall average is below 4.2.
+
 ## Agent Runtime
 
 When the request is specifically about running this as an agent, read `references/subagent-runtime-prompt.md`. Use it as the exact role prompt for the delegated agent or as the user-facing agent specification when a persistent agent surface is unavailable.
@@ -208,3 +237,5 @@ Before finalizing, check:
 - One primary style remains active; unused routes did not leak into the result.
 - Text/logo/UI are assigned to post-production unless intentionally generated.
 - The package tells a human operator what to do next, not just what to imagine.
+- Static concepts have a readable role, silhouette, three-or-fewer motifs, controlled detail hierarchy, explicit material mapping, and a presentation view that proves the design.
+- Reference images control only their declared fields. A quality reference never silently contributes palette, costume parts, motifs, face, props, or setting.
