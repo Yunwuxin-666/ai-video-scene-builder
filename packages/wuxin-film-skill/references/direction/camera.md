@@ -43,15 +43,7 @@ Load only the reference files needed for the task:
 4. Establish the hidden spatial line before designing shots: character placement, facing direction, movement direction, relationship side, foreground/background relation, and viewer position. Treat axis as an internal directing layer, not as prompt text.
 5. Infer the camera function of the moment: establish space, keep action readable, protect screen direction, emphasize a beat, connect two actions, or preserve a dramatic pause.
 6. Apply shot-economy judgment before designing coverage. Choose the fewest camera changes that can protect the user's action and story. Do not split a continuous moment just to show directing ability. Default to one-take or two-stage camera movement when continuity, rhythm, performance, product motion, or VFX interaction is the main value.
-7. Diagnose only camera-side problems:
-   - camera height is unmotivated;
-   - lens is too wide or too flat;
-   - subject scale does not match the emotion;
-   - character relation, facing direction, or movement direction is unclear;
-   - camera movement breaks the original action flow;
-   - a cut hides a required movement beat, gesture, tool/prop line, eye-line, or story action;
-   - shot size makes the user's key action unreadable;
-   - animation/game-like framing needs a physically plausible camera position.
+7. Diagnose only camera-side problems: unmotivated height or lens, unreadable subject scale or spatial relation, implausible movement, hidden action beats, or framing that prevents the key action from reading.
 8. Choose camera coverage that protects the user's original timeline. Do not merge, delete, simplify, reorder, or invent action beats.
 9. Decide whether the scene needs one-take, two-stage coverage, or multi-shot coverage:
    - one-take: use when action rhythm, body continuity, performance, chase, fight, walk-through, product motion, or VFX interaction should feel continuous;
@@ -59,7 +51,7 @@ Load only the reference files needed for the task:
    - multi-shot coverage: use only when separate viewpoints are necessary for geography, reaction, proof detail, or consequence.
 10. Check whether the coverage is complete without being over-covered: macro geography, action readability, beat emphasis, reaction/relationship, transition, and ending hold. Include only the roles required by the user's scene.
 11. Build an internal per-shot camera packet for every storyboard unit. Camera parameters must be present inside each shot prompt, but should be written as natural prose rather than a labeled parameter list unless the user asks for a table.
-12. Specify only camera-side language per shot: shot size, camera angle, camera side/relationship position, focal length, aperture/T-stop, frame rate, shutter, camera height, camera distance, support system, movement path, movement speed/scale when useful, focus behavior, cut point, and continuity note.
+12. Specify only the camera fields defined in the per-shot packet below.
 13. Output copy-ready camera prompts as compact director-facing paragraphs. When the user needs a full generation prompt, include the user's actual original action, visual style, lighting, environment, VFX, sound, costume, prop, and art-direction wording in the prompt, then add camera coverage around it. When the user asks for camera additions only, output only the camera add-on paragraphs. In both modes, never emit preservation meta-language or internal axis analysis. Do not output phrases such as `原文设定`, `逐字沿用`, `不改写`, `不压缩`, `不替换同义词`, `180度轴线`, `越轴`, `轴线关系`, or `[沿用原有...]` unless the user explicitly asks for an audit note instead of a copy-ready prompt.
 
 ## Output Modes
@@ -142,7 +134,7 @@ Required fields for each shot:
 - `对焦`: focus target and focus transition, such as locked on eyes, follow a hand/tool/prop line, rack from hand to face.
 - `切点/连续性`: what original action beat triggers the cut or where the one-take camera changes mode.
 
-For one-take dynamic coverage, still include per-time-slice camera parameters, because a one-take can change focal feel, distance, camera path, and focus behavior across beats. Write each time-slice as a short paragraph labeled only by timecode, not as a parameter stack.
+For a dynamic one-take, give each time slice its own compact camera packet in prose.
 
 For multi-camera or studio-style coverage, write each camera as an independent paragraph: `A机 master`, `B机 insert`, `C机 reaction`, etc. Each paragraph gets its own lens, height, distance, support, movement, focus, and cut/use condition.
 

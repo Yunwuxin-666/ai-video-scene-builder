@@ -55,7 +55,7 @@ Load only the references needed for the active request.
 | Need | Read |
 |---|---|
 | Character, costume, grooming, props, materials | [character design](references/character/character-design.md); for high-detail clothing also [costume precision](references/character/costume-precision.md); for output sheets use [templates](references/character/prompt-templates.md) |
-| Style options or stored style cards | [style system](references/direction/style.md) and, only when needed, [style catalog](references/direction/style-catalog.md) |
+| Style options or stored style cards | [style system](references/direction/style.md), then only one relevant catalog: [general/environment](references/direction/style-catalog.md), [character/IP](references/direction/style-catalog-character-ip.md), or [graphic/motion](references/direction/style-catalog-graphic-motion.md) |
 | Environment, architecture, level-space logic | [environment design](references/environment/environment-design.md) |
 | VFX, magic, particles, fluids, destruction | [VFX design](references/vfx/vfx-design.md); optionally [effect library](references/vfx/effect-library.md) or [combat continuity](references/vfx/game-combat-continuity.md) |
 | Lens, framing, movement, coverage, continuity | [camera](references/direction/camera.md), [camera language](references/direction/camera-language.md), and [coverage patterns](references/direction/coverage-patterns.md) |
@@ -128,4 +128,3 @@ Reject or repair the smallest failing field when any of these is weak:
 - camera, lighting, action, and environment contradicting each other;
 - several requested assets merged into one unusable prompt;
 - final text not directly copyable.
-

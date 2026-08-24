@@ -23,6 +23,8 @@ for platforms that accept one `SKILL.md` folder. It consolidates the suite into
 one progressively disclosed router and stays within a 50-Markdown-file package
 limit. Use the full repository when maintaining individual departments; use the
 simplified distribution when uploading or sharing one portable skill.
+The portable package contains no more than 50 Markdown files, and every
+individual file stays below 20,000 characters.
 
 ## Validation
 

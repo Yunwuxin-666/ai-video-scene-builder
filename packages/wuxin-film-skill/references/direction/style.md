@@ -49,7 +49,7 @@ Default to Chinese output. Keep the result usable for AI image or video generati
    - texture direction: clean commercial, grounded realism, film grain, humid/gritty, soft diffusion, or tactile handmade.
 5. Select a visual style route:
    - use the user's named style when specific;
-   - if the user asks "有哪些风格" or needs options, read the same-directory `style-catalog.md`;
+   - if the user asks "有哪些风格" or needs options, read only the relevant catalog: `style-catalog.md` for general/environment routes, `style-catalog-character-ip.md` for character/IP routes, or `style-catalog-graphic-motion.md` for graphic/motion routes;
    - if the user gives only "高级/电影感/真实/梦幻", translate it into concrete lighting, palette, material, and camera choices.
 6. Write the prompt in executable order:
    - stable subject and one visible action;
@@ -175,13 +175,11 @@ Always include concrete negative constraints for likely failures:
 
 ## Reference Loading
 
-Read the same-directory `style-catalog.md` when:
+Read only the relevant same-directory catalog:
 
-- the user asks what visual styles exist;
-- the user wants multiple style options;
-- the user names a broad style and needs details;
-- the user names a stable style card / visual mother style and wants that aesthetic applied consistently;
-- the task needs material examples or sample prompts.
+- `style-catalog.md`: general cinematic and environment routes;
+- `style-catalog-character-ip.md`: portrait, character, collectible IP, and toy-material routes;
+- `style-catalog-graphic-motion.md`: graphic-editorial and motion-led routes.
 
 When using a catalog card, treat it as opt-in: apply it only when the user names the card or gives a clear trigger phrase. Do not turn a single card into the default look for a whole genre.
 
