@@ -1,0 +1,4 @@
+interface:
+  display_name: "创意制作总编排"
+  short_description: "协调跨媒体资产、并行创意、阶段生产与知识沉淀"
+  default_prompt: "Use $orchestrate-creative-production to coordinate this cross-media, asset-rich creative program."

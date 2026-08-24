@@ -1,0 +1,4 @@
+﻿interface:
+  display_name: "特效.skill"
+  short_description: "根据剧本、创意和分镜生成影视级 CG 特效中文提示词。"
+  default_prompt: "Use $vfx-prompt-designer（特效.skill）to turn this storyboard into cinematic Chinese VFX prompts with material and interaction details."

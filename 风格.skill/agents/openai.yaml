@@ -1,0 +1,4 @@
+interface:
+  display_name: "影像风格提示词"
+  short_description: "把画面想法转换成含镜头光线材质色彩细节的导演级提示词"
+  default_prompt: "Use $风格.skill to turn my scene idea into a cinematic prompt with style, lighting, texture, camera, and negative constraints."

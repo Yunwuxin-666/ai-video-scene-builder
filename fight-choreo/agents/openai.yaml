@@ -1,0 +1,6 @@
+interface:
+  display_name: "打斗.skill"
+  short_description: "把剧本动作场景转成专业打斗编排和AI视频提示词计划。"
+  default_prompt: "Use $fight-choreo to turn this fight scene beat into a professional action choreography prompt plan."
+policy:
+  allow_implicit_invocation: true

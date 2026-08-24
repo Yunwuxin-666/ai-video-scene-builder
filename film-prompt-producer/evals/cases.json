@@ -1,0 +1,73 @@
+[
+  {
+    "id": "vague-brand-film",
+    "input": "给我的知识产品做一条高级感短片。",
+    "mode": "stable",
+    "must_lock": ["audience", "one functional spine", "primary style", "ending state"],
+    "allowed_inferences_max": 3,
+    "must_not": ["feature list", "mixed style routes", "unsupported brand claim"]
+  },
+  {
+    "id": "conflicting-character-references",
+    "input": "图片1参考脸和头发，图片2参考服装，但两张图人物和背景完全不同。",
+    "mode": "stable",
+    "must_lock": ["reference controls", "reference must_ignore", "identity priority"],
+    "must_not": ["blend both faces", "transfer either background", "silent conflict resolution"]
+  },
+  {
+    "id": "seedance-25-continuous-performance",
+    "input": "用 Seedance 2.5 做30秒歌手从后台走到舞台的一镜到底。",
+    "mode": "director",
+    "must_lock": ["protagonist", "movement path", "light continuity", "sound continuity", "phase end states"],
+    "must_not": ["unexplained teleport", "outfit drift", "fixed five-phase requirement"]
+  },
+  {
+    "id": "seedance-25-risky-payment-ad",
+    "input": "做30秒支付产品广告，要有手部操作、清晰UI、产品微距和片尾包装。",
+    "mode": "stable",
+    "must_lock": ["product geometry", "hand continuity", "post-production text"],
+    "must_not": ["force entire ad into one take", "generate precise UI text in-frame", "claim native 4K"]
+  },
+  {
+    "id": "multi-character-dialogue",
+    "input": "四个人在餐桌上争论，最后其中一人做出决定。",
+    "mode": "stable",
+    "must_lock": ["character IDs", "seat map", "eye-lines", "decision cause", "ending state"],
+    "must_not": ["speaker identity swap", "seat teleport", "generic reaction montage"]
+  },
+  {
+    "id": "vfx-force-continuity",
+    "input": "角色被右侧能量冲击推飞，下一镜落在左侧平台。",
+    "mode": "director",
+    "must_lock": ["effect source", "force direction", "flight path", "landing point", "residue"],
+    "must_not": ["source-target swap", "unsupported floating", "wrong landing side"]
+  },
+  {
+    "id": "targeted-edit-protection",
+    "input": "只把视频8到12秒的红色外套改成蓝色，其他都不要动。",
+    "mode": "stable",
+    "must_lock": ["camera motion", "body action", "timing", "background geometry", "shadows", "reflections"],
+    "must_not": ["change face", "change action", "change camera", "change scene"]
+  },
+  {
+    "id": "multi-round-extension",
+    "input": "把现有30秒地铁追逐视频再延长30秒。",
+    "mode": "director",
+    "must_lock": ["prior end state", "character identity", "held props", "movement direction", "sound state"],
+    "must_not": ["restart the story", "reverse exit direction", "reset product or prop state"]
+  },
+  {
+    "id": "explicit-apple-style",
+    "input": "做一条苹果式克制幽默的产品广告。",
+    "mode": "stable",
+    "must_lock": ["explicit style trigger", "human problem", "small tool action", "restrained reveal"],
+    "must_not": ["copy Apple marks", "feature list", "cyberpunk styling"]
+  },
+  {
+    "id": "non-apple-documentary",
+    "input": "做一条潮湿南方工厂的纪实人物短片。",
+    "mode": "stable",
+    "must_lock": ["documentary route", "natural light logic", "material anchors", "character goal"],
+    "must_not": ["Apple-style product grammar", "clean white studio", "unrequested luxury palette"]
+  }
+]

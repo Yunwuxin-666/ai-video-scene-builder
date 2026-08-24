@@ -1,0 +1,7 @@
+interface:
+  display_name: "音乐.skill"
+  short_description: "影视音效组合与 BGM 适配提示词"
+  default_prompt: "Use $音乐.skill to design cinematic sound effects and BGM prompts for this scene."
+
+policy:
+  allow_implicit_invocation: true

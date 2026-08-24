@@ -1,0 +1,7 @@
+interface:
+  display_name: "镜头.skill"
+  short_description: "只负责景别、机位、焦段、空间关系、运镜和剪辑连续性。"
+  default_prompt: "Use $镜头.skill to preserve my original action, plot, lighting, and style while optimizing only shot size, camera position, focal length, spatial continuity, movement direction, and cut points."
+
+policy:
+  allow_implicit_invocation: true

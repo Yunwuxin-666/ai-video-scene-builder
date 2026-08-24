@@ -1,0 +1,7 @@
+interface:
+  display_name: "角色设计"
+  short_description: "影视角色、服装妆造、材质道具与世界观设定"
+  default_prompt: "Use $character-design to create a character design sheet, costume breakdown, materials board, and copy-ready prompts."
+
+policy:
+  allow_implicit_invocation: true

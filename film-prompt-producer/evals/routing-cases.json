@@ -1,0 +1,100 @@
+[
+  {
+    "id": "full-film-workflow",
+    "input": "帮我做一条30秒品牌短片，从创意、分镜、镜头、灯光到Seedance提示词。",
+    "primary": "film-prompt-producer",
+    "allowed_secondary": ["storyboard-video-prompts", "镜头.skill", "灯光.skill", "aivideo-prompt"],
+    "forbidden_primary": ["orchestrate-creative-production", "filmmaker", "creative-director"]
+  },
+  {
+    "id": "compile-approved-storyboard",
+    "input": "分镜已经锁定，把它编译成Seedance 2.5可复制提示词。",
+    "primary": "aivideo-prompt",
+    "allowed_secondary": [],
+    "forbidden_primary": ["storyboard-video-prompts", "film-prompt-producer"]
+  },
+  {
+    "id": "story-mechanism-only",
+    "input": "分析这条参考广告的叙事机制，重做一版因果清楚的分镜结构。",
+    "primary": "storyboard-video-prompts",
+    "allowed_secondary": [],
+    "forbidden_primary": ["aivideo-prompt", "filmmaker"]
+  },
+  {
+    "id": "camera-only",
+    "input": "故事和动作不要动，只优化这三镜的机位、焦段、运镜和切点。",
+    "primary": "镜头.skill",
+    "allowed_secondary": [],
+    "forbidden_primary": ["film-prompt-producer", "aivideo-prompt"]
+  },
+  {
+    "id": "lighting-only",
+    "input": "只调整这张分镜的主光方向、光比和色温。",
+    "primary": "灯光.skill",
+    "allowed_secondary": [],
+    "forbidden_primary": ["风格.skill", "film-prompt-producer"]
+  },
+  {
+    "id": "duration-only",
+    "input": "检查这条30秒广告的镜头时长是不是太碎，重新标切点。",
+    "primary": "时长.skill",
+    "allowed_secondary": [],
+    "forbidden_primary": ["storyboard-video-prompts", "aivideo-prompt"]
+  },
+  {
+    "id": "sound-only",
+    "input": "画面不改，给这组镜头设计环境声、拟音和BGM cue。",
+    "primary": "音乐.skill",
+    "allowed_secondary": [],
+    "forbidden_primary": ["film-prompt-producer", "creative-director"]
+  },
+  {
+    "id": "style-only",
+    "input": "动作和镜头都锁定，只做潮湿南方纪实影像的色彩、材质和影调。",
+    "primary": "风格.skill",
+    "allowed_secondary": [],
+    "forbidden_primary": ["灯光.skill", "aivideo-prompt"]
+  },
+  {
+    "id": "vfx-only",
+    "input": "只设计能量冲击的来源、受力方向、接触和环境反应。",
+    "primary": "vfx-prompt-designer",
+    "allowed_secondary": [],
+    "forbidden_primary": ["镜头.skill", "film-prompt-producer"]
+  },
+  {
+    "id": "animation-performance",
+    "input": "用动画十二原则优化这个角色起跳前的预备动作和落地缓冲。",
+    "primary": "filmmaker",
+    "allowed_secondary": [],
+    "forbidden_primary": ["film-prompt-producer", "creative-director"]
+  },
+  {
+    "id": "animation-team-standards",
+    "input": "给动画团队建立统一的运动语言、缓动标准和审片规则。",
+    "primary": "creative-director",
+    "allowed_secondary": [],
+    "forbidden_primary": ["film-prompt-producer", "filmmaker"]
+  },
+  {
+    "id": "cross-media-program",
+    "input": "复用以前的IP资产，同时做角色升级、海报、短片、课程文档，并沉淀成模板。",
+    "primary": "orchestrate-creative-production",
+    "allowed_secondary": ["film-prompt-producer"],
+    "forbidden_primary": ["aivideo-prompt", "creative-director"]
+  },
+  {
+    "id": "explicit-film-producer",
+    "input": "使用film-prompt-producer把这个想法做成完整影视生产包。",
+    "primary": "film-prompt-producer",
+    "allowed_secondary": [],
+    "forbidden_primary": ["orchestrate-creative-production"]
+  },
+  {
+    "id": "explicit-camera-skill",
+    "input": "使用镜头.skill，只改摄影机。",
+    "primary": "镜头.skill",
+    "allowed_secondary": [],
+    "forbidden_primary": ["film-prompt-producer"]
+  }
+]

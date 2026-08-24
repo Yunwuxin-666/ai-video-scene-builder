@@ -1,0 +1,7 @@
+interface:
+  display_name: "情绪.skill"
+  short_description: "检查并优化影视提示词中的人物情绪表现。"
+  default_prompt: "Use $情绪.skill to check and optimize the character emotion in this video prompt."
+
+policy:
+  allow_implicit_invocation: true

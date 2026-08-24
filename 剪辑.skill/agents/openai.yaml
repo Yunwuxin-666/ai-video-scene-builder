@@ -1,0 +1,7 @@
+interface:
+  display_name: "剪辑.skill"
+  short_description: "分镜衔接、剪点与转场提示词"
+  default_prompt: "Use $剪辑.skill to turn my storyboard shots into an edit-ready transition plan with cut points, continuity carriers, sound bridges, and copy-ready prompts."
+
+policy:
+  allow_implicit_invocation: true

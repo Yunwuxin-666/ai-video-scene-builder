@@ -1,0 +1,7 @@
+interface:
+  display_name: "灯光.skill"
+  short_description: "根据场景、脚本或图片诊断并设计影视灯光方案。"
+  default_prompt: "Use $灯光.skill to define or optimize cinematic lighting for my scene, script, storyboard, image, or video-generation prompt."
+
+policy:
+  allow_implicit_invocation: true

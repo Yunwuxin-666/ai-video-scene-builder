@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI视频提示词编译器"
+  short_description: "把已锁定分镜与制作设定编译成平台可执行提示词"
+  default_prompt: "Use $aivideo-prompt to compile this approved storyboard into copy-ready Chinese AI video prompts."
