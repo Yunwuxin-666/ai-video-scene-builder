@@ -1,20 +1,28 @@
 # Film Skill Suite
 
-This repository is a local version-controlled snapshot of the film, AI-video,
+This repository is a version-controlled snapshot of the film, AI-video,
 character-concept, environment-concept, camera, lighting, style, emotion, timing, sound, editing,
-action, and VFX skills installed under:
+action, and VFX skills normally installed under:
 
-`C:\Users\Administrator\.codex\skills`
+`%USERPROFILE%\.codex\skills`
 
 `orchestrate-creative-production` is included only as the validated upstream
 cross-media routing dependency of `film-prompt-producer`.
 
 ## Source of truth
 
-The live Codex skills remain under `C:\Users\Administrator\.codex\skills`.
+The live Codex skills normally remain under `%USERPROFILE%\.codex\skills`.
 This repository is an independent snapshot and does not automatically change
 the live skills. Future edits should explicitly choose whether this repository
 or the live directory is the authoring source before adding synchronization.
+
+## Simplified distribution
+
+`packages/wuxin-film-skill` is the single-entry **Wuxin Film Skill** distribution
+for platforms that accept one `SKILL.md` folder. It consolidates the suite into
+one progressively disclosed router and stays within a 50-Markdown-file package
+limit. Use the full repository when maintaining individual departments; use the
+simplified distribution when uploading or sharing one portable skill.
 
 ## Validation
 

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Wuxin Film Skill"
+  short_description: "统一调度影视与游戏美术部门，输出高质量可复制提示词"
+  default_prompt: "Use $wuxin-film-skill to turn my brief and references into a coherent, quality-gated Chinese concept-art or film prompt package."
+
