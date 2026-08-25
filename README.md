@@ -1,4 +1,4 @@
-# Film Skill Suite
+# Wuxin Film Skill
 
 This repository is a version-controlled snapshot of the film, AI-video,
 character-concept, environment-concept, camera, lighting, style, emotion, timing, sound, editing,
@@ -44,3 +44,9 @@ Run the suite contract validator from PowerShell:
 - VFX and fight choreography
 - Animation performance and direction boundaries
 - Cross-media routing boundary dependency
+
+## Legacy repository content
+
+The standalone `AIvideo-prompt` version that previously occupied the GitHub
+repository is preserved under `legacy/AIvideo-prompt`. Its original Git history
+is also connected to this repository through the migration merge commit.
