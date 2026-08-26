@@ -44,7 +44,19 @@ Always output the final prompts in Chinese unless the user explicitly asks for E
    - Light: how it emits, absorbs, reflects, refracts, scatters, or blocks light.
    - Scene reason: why this effect belongs in this setting and does not feel pasted on.
 
-3. Map VFX to action beats before writing. Do this for every genre and input type, not only action scenes.
+3. For game combat, skill tests, ultimates, and fixed-camera gameplay showcases, establish a preflight contract before writing effects. Read `references/game-vfx-production-workflow.md` and lock:
+   - delivery mode: complete copy-ready prompt, compact prompt, patch, beat map, or technical breakdown;
+   - camera mode: gameplay top-down, isometric, side view, third-person, cinematic, or asset-test camera;
+   - blocking: source position, target position, attack axis, landing point, and stable environment anchors;
+   - action continuity: attack count, order, timing, body-force chain, weapon path, target reaction, and inherited end state;
+   - effect anchors: source anchor, travel/path anchor, contact anchor, ground anchor, follow behavior, lock behavior, and release behavior;
+   - palette contract: core, body, mid-layer, edge, impact, particle, ground, residue, and forbidden colors;
+   - reference roles: state what each image or video controls and what visible attributes must be ignored;
+   - intensity ladder: assign relative screen coverage and visual weight to setup, light hits, heavy hits, and finishers.
+
+   Do not begin a game-combat prompt while any spatial anchor, attack direction, reference role, or palette relationship remains ambiguous enough to change the result. Infer only when the available context supports one dominant interpretation; otherwise report the ambiguity or ask one sharp question.
+
+4. Map VFX to action beats before writing. Do this for every genre and input type, not only action scenes.
    - Approach / build-up: add pre-contact signs such as air pressure, fluid tension, condensation, particles gathering, fabric reacting, UI priming, reflected light, or surface vibration.
    - Contact / trigger: add the exact interaction point such as foot-to-ground, tire-to-water, product-to-liquid, sword-to-sword, hand-to-hologram, bottle-to-ice, or ingredient-to-heat.
    - Impact / peak: add the strongest visible effect such as splash, sparks, fracture, smoke burst, powder bloom, UI response, light pulse, or material transition.
@@ -52,7 +64,7 @@ Always output the final prompts in Chinese unless the user explicitly asks for E
    - Settle / cut point: add falling particles, fading smoke, water trails, residual reflections, final condensation, product reveal, or readable pause.
    - Skip any beat that is not visible or not useful. Do not force every beat into every shot.
 
-4. Preserve locked shot language when the user provides camera packets, shot descriptions, blocking, timing, composition, lens, frame rate, shutter, aperture, aspect ratio, camera height, distance, support system, camera movement, focus, cut point, lighting, art direction, or "keep original action" instructions.
+5. Preserve locked shot language when the user provides camera packets, shot descriptions, blocking, timing, composition, lens, frame rate, shutter, aperture, aspect ratio, camera height, distance, support system, camera movement, focus, cut point, lighting, art direction, or "keep original action" instructions.
    - Do not rewrite, merge, simplify, reinterpret, or "improve" those fields unless the user explicitly asks for a rewrite.
    - Keep original camera parameters intact when producing copyable prompts.
    - Do not dump VFX as a loose keyword paragraph after the shot.
@@ -60,14 +72,21 @@ Always output the final prompts in Chinese unless the user explicitly asks for E
    - If rewriting the action sentence for prompt use, preserve the original action intent and sequence while adding only physically motivated VFX behavior at the exact visible moments.
    - If a compact output is requested, still preserve all original camera parameters verbatim and compress only the VFX wording.
 
-5. Select effect families. For broad or multi-scene tasks, read `references/vfx-effect-library.md` and pick only the relevant families.
+6. For every game-combat action beat, integrate action and picture design instead of writing them as separate layers. Define the visible action, frame composition, primary effect shape, contact/impact stack, particle depth, environment response, and inherited residue in one beat. Treat every important contact frame as a designed gameplay keyframe: source, target, direction, range, and hit point must remain readable when paused.
+
+7. Select effect families. For broad or multi-scene tasks, read `references/vfx-effect-library.md` and pick only the relevant families.
    - For stylized combat, xianxia/wuxia magic, game ultimates, anime-style spell circles, or large-scale supernatural fights, also read `references/game-combat-vfx-continuity.md`. Use it for timing, anchoring, layered spell geometry, and effect continuity. Do not apply it to unrelated realistic/product scenes.
+   - For fixed-camera gameplay VFX, reference-heavy combat prompts, target-centered fields, layered impacts, or iterative prompt repair, also read `references/game-vfx-production-workflow.md`.
 
-6. Write prompts at shot level. Avoid generic "cool special effects"; describe visible behavior frame by frame.
+8. Write prompts at shot level. Avoid generic "cool special effects"; describe visible behavior frame by frame.
 
-7. Add negative prompts or failure checks when the shot is likely to become fake, chaotic, or visually unclear.
+9. Add negative prompts or failure checks when the shot is likely to become fake, chaotic, or visually unclear.
 
-8. When revising an existing VFX/video prompt, perform a post-edit self-check against the selected relevant rules before finalizing. Confirm that the revised prompt still preserves the user's locked camera/blocking/timing, that each added effect has a source, trigger, force direction, contact point, environment reaction, and cut/result state. If the revision reveals a reusable failure pattern, add it to the relevant reference or checklist; if it is only a specific scene note, keep it in the project file and do not pollute the general skill.
+10. When revising an existing VFX/video prompt, perform a post-edit self-check against the selected relevant rules before finalizing. Confirm that the revised prompt still preserves the user's locked camera/blocking/timing, that each added effect has a source, trigger, force direction, contact point, environment reaction, and cut/result state. Revalidate anchors, palette compatibility, reference roles, and the intensity ladder after every material revision.
+   - Preserve every previously accepted field unless the user's feedback changes it.
+   - Treat feedback as a staged capability upgrade, not as permission to discard the working design.
+   - When the user asks for a complete, directly copyable, or no-manual-replacement deliverable, recompile and return the entire prompt after every revision. Do not return append-only patches, replacement fragments, or instructions that require manual assembly.
+   - If the revision reveals a reusable failure pattern, add it to the relevant reference or checklist; if it is only a specific scene note, keep it in the project file and do not pollute the general skill.
 
 ## Scope Guard
 
